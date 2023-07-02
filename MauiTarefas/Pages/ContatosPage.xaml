@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiTarefas.Pages.ContatosPage"
+             Title="Contato">
+    
+    <VerticalStackLayout VerticalOptions="Center" 
+                         HorizontalOptions="Center" Spacing="20">
+    
+        <Image Source="rosto1.png" />
+        <Label Text="Nome do Cliente" FontSize="30" />
+        <Label Text="Email: cliente@email.com" FontSize="18"/>
+        <Label Text="Celular: (123) 456-7890" FontSize="18"/>
+        <Label Text="Cidade: São Paulo" FontSize="18"/>
+        <Label Text="Estado: SP" FontSize="18"/>
+        <Label Text="Rua: Rua Exemplo, 123" FontSize="18"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

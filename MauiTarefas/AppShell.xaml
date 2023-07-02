@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiTarefas.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiTarefas"
+    xmlns:pages="clr-namespace:MauiTarefas.Pages"
+    Shell.TabBarIsVisible="False">
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        
+        <ShellContent Icon="home24.png"
+            Title="Home"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+
+         <ShellContent Icon="task24.png"
+            Title="Tarefas"
+            ContentTemplate="{DataTemplate pages:TarefasPage}"
+            Route="Tarefas" />
+
+        <ShellContent Icon="contact24.png"
+            Title="Contatos"
+            ContentTemplate="{DataTemplate pages:ContatosPage}"
+            Route="Contatos" />
+
+    </FlyoutItem>
+    
+</Shell>

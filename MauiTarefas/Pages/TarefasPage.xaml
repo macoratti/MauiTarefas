@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiTarefas.Pages.TarefasPage"
+             xmlns:viewmodel="clr-namespace:MauiTarefas.ViewModels"
+             x:DataType="viewmodel:TarefasPageViewModel"
+             Title="Minhas Tarefas">
+    
+    <Grid RowDefinitions="100, Auto, *" ColumnDefinitions=".80*, .20*"
+          Padding="5" RowSpacing="10" ColumnSpacing="5">
+
+        <Image Grid.ColumnSpan="2" Source="tarefas1.jpg" 
+               HeightRequest="90"  BackgroundColor="Transparent"/>
+
+        <Entry Placeholder="Informe a tarefa"
+               Text="{Binding Text}" FontSize="20"
+               Grid.Row="1"/>
+
+        <Button Text="Incluir"
+                FontSize="16" FontAttributes="Bold"
+                Command="{Binding AddCommand}"
+                Grid.Row="1" Grid.Column="1"/>
+
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type x:String}">
+                    <SwipeView>
+                        <SwipeView.RightItems>
+                            <SwipeItems>
+                                <SwipeItem Text="Delete"
+                                           BackgroundColor="Red"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TarefasPageViewModel}}, Path=DeleteCommand}"
+                                           CommandParameter="{Binding .}"/>
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+                        <Grid Padding="0,5">
+                            <Frame>
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer 
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TarefasPageViewModel}}, Path=TapCommand}"
+                                           CommandParameter="{Binding .}"/>
+                                </Frame.GestureRecognizers>
+                                <Label Text="{Binding .}"
+                                       FontSize="24"/>
+                            </Frame>
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>  
+</ContentPage>
